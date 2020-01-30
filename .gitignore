@@ -1,0 +1,9 @@
+.vagrant/*
+*.bin
+DevOps-course-STEP-2019.png
+ubuntu-bionic-18.04-cloudimg-console.log 
+README.md 
+provision/buckup_db_provision.sh 
+provision/db_vm_provision.sh 
+distro/atlassian-confluence-7.1.0-x64.bin 
+
