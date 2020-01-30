@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
       v.customize ["modifyvm", :id, "--memory", 1024] # оперативка, міняти тіку цифру
       v.customize ["modifyvm", :id, "--name", "db"] # ім'я віртуалки
     end
-    db.vm.provision "shell", path: "provision/db_provider.sh" # провіжн файл
+    db.vm.provision "shell", path: "provision/db_provider_2.sh" # провіжн файл
   end
 
   #решта то саме
