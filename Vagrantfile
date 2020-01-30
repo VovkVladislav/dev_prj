@@ -21,25 +21,25 @@ Vagrant.configure("2") do |config|
     app.vm.provider :virtualbox do |v|
       v.customize ["modifyvm", :id, "--natdnshostresolver2", "on"]
       v.customize ["modifyvm", :id, "--memory", 4096]
-      v.customize ["modifyvm", :id, "--name", "app"]
+      #v.customize ["modifyvm", :id, "--name", "app"]
     end
     app.vm.provision "shell", path: "provision/app_vm_provision.sh"
 
   end
 
-  config.vm.define "proxy" do |proxy|
-    proxy.vm.box = "centos/7"
-    proxy.vm.network "public_network"
-    proxy.vm.network "forwarded_port", guest: 80, host: 8080
-    proxy.vm.network "forwarded_port", guest: 443, host: 8888
-    proxy.vm.network "private_network", ip: "192.168.11.10"
-    proxy.vm.provider :virtualbox do |v|
-      v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-      v.customize ["modifyvm", :id, "--memory", 2048]
-      v.customize ["modifyvm", :id, "--name", "proxy"]
-    end
-    proxy.vm.provision "shell", path: "provision/proxy_vm_provision.sh"
-  end
+ # config.vm.define "proxy" do |proxy|
+  #  proxy.vm.box = "centos/7"
+   # proxy.vm.network "public_network"
+  #  proxy.vm.network "forwarded_port", guest: 80, host: 8080
+  #  proxy.vm.network "forwarded_port", guest: 443, host: 8888
+  #  proxy.vm.network "private_network", ip: "192.168.11.10"
+  #  proxy.vm.provider :virtualbox do |v|
+  #    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  #    v.customize ["modifyvm", :id, "--memory", 2048]
+  #    v.customize ["modifyvm", :id, "--name", "proxy"]
+  ##  end
+  #  proxy.vm.provision "shell", path: "provision/proxy_vm_provision.sh"
+  #end
 
 
 end
